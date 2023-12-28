@@ -1,5 +1,7 @@
 ## Инициализация
- - Склонировать проет
+```sh
+ git clone https://github.com/DmitriyHoney/bunker.git
+```
 ```sh
  git submodule update --init --recursive
 ```
