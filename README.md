@@ -1,5 +1,10 @@
 ## Инициализация
-Создать файл .env в корне по образу и подобию .env.example
+ - Склонировать проет
+```sh
+ git submodule update --init --recursive
+```
+ - убедиться, что во frontend, backend, и в корне ветка master
+ - Создать в корне файл .env на подобии .env.example
 ```sh
 docker-compose up -d --build
 ```
