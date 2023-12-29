@@ -14,7 +14,6 @@ services:
       - nginx-proxy
     depends_on:
       - db
-      - redis
   frontend:
     container_name: ${PROJECT}_frontend
     restart: always
@@ -46,29 +45,6 @@ services:
     depends_on:
       - backend
       - frontend
-  redis:
-    container_name: ${PROJECT}_redis
-    restart: always
-    image: 'redis:7'
-    ports:
-      - '${REDIS_PORT}:6379'
-    networks:
-      - nginx-proxy
-  celery:
-    container_name: ${PROJECT}_celery
-    build: ./backend
-    environment:
-      - SERVICE=celery
-    volumes:
-      - './backend:/backend'
-      - './backend/logs:/backend/logs'
-    env_file:
-      - ./.env
-    depends_on:
-      - backend
-    restart: always
-    networks:
-      - nginx-proxy
   db:
     container_name: ${PROJECT}_db
     restart: always
